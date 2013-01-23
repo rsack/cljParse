@@ -4,7 +4,6 @@
 ;;   	add something like parse( sqlparse( string ) )
 ;;		check if "if re-find " or cond and true/false
 
-
 (defn checkbash? [c]
   (if (re-find #"(?i)^.+;" c)
     true
@@ -12,7 +11,7 @@
 
 
 (defn chkIt? [c]
-  ( re-find #"(?i)(^select .* from .*)" c))
+  ( re-find #"(?i)(^select .* from .*)|(^delete from me)" c))
 
 (defn test-sql [token]
     (cond
