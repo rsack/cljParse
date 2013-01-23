@@ -1,15 +1,13 @@
 # cljParse
 
-I'm an app. Or maybe I'm a library? I haven't decided yet. 
-
-The choice is up to you!
+A simple Clojure parser to build upon
 
 ## Usage
 
-FIXME
+Execute core.clj
+Call the parse function with 2 arguments:
+1. A function to parse your string/query (e.g. test-sql)
+2. Your string/query.
 
-## License
-
-Copyright © 2013 FIXME
-
-Distributed under the Eclipse Public License, the same as Clojure.
+Example:
+(parse test-sql "SELECT this from Table")
