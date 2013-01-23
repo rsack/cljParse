@@ -1,8 +1,8 @@
 (ns cljParse.core)
 
 ;; TODO:
-;;   	add something like parse( sqlparse( string ) )
-;;		check if "if re-find " or cond and true/false
+;;  v-	Add something like parse( sqlparse( string ) )
+;;	?	Check if "if re-find " or cond and true/false
 
 ;; Notes:
 ;;		Careful of spaces in optional regex
@@ -12,9 +12,8 @@
     true
     false))
 
-
 (defn chkIt? [c]
-  ( re-find #"(?i)(^select .* from .*( group by .*)?)|(^delete from me)" c))
+  ( re-find #"(?i)(^select .* from .*( group by .* (order by .*)?)?)|(^delete from me)" c))
 
 (defn test-sql [token]
     (cond
