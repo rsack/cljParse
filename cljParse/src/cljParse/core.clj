@@ -11,7 +11,7 @@
 
 
 (defn chkIt? [c]
-  ( re-find #"(?i)(^select .* from .*)|(^delete from me)" c))
+  ( re-find #"(?i)(^select .* from .* (group by .*)?)|(^delete from me)" c))
 
 (defn test-sql [token]
     (cond
