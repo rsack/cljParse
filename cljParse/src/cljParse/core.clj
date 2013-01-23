@@ -5,6 +5,12 @@
 ;;		check if "if re-find " or cond and true/false
 
 
+(defn checkbash? [c]
+  (if (re-find #"(?i)^.+;" c)
+    true
+    false))
+
+
 (defn chkIt? [c]
   ( re-find #"(?i)(^select .* from .*)" c))
 
@@ -13,8 +19,8 @@
       (chkIt? token) true
       :else false))
 
-(defn parse [f sql-str]
-  (f sql-str))
+(defn parse [f parsestr]
+  (f parsestr))
 
 (comment
-  (parse type-of-parse-function "s") )
+  (parse type-of-parse-function "string to parse") )
