@@ -12,6 +12,11 @@
     true
     false))
 
+(defn checkjavavardeclaration? [c]
+  (if (re-find #"^(byte|short|int|long|float|double|boolean|String) .+(=.*)?;" c)
+    true
+    false))
+
 (defn checksql? [token]
     (cond
       (re-find #"(?i)^select .* from .*( where .*)?( group by .*)?( having .*)?( order by .*)?" token) true
