@@ -1,6 +1,7 @@
 (ns cljParse.core)
 
 ;; TODO:
+;;      Need to find a way to wrap the long reg-exs
 ;;  v-	Add something like parse( sqlparse( string ) )
 ;;	?	Check if "if re-find " or cond and true/false
 
