@@ -13,7 +13,7 @@
     false))
 
 (defn chkIt? [c]
-  ( re-find #"(?i)(^select .* from .*( group by .* (order by .*)?)?)|(^delete from me)" c))
+  ( re-find #"(?i)(^select .* from .*( where .*)?( group by .*)?( having .*)?( order by .*)?)|(^delete from me)" c))
 
 (defn test-sql [token]
     (cond
