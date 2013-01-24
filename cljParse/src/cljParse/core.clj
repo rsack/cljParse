@@ -17,6 +17,11 @@
     true
     false))
 
+(defn checkperlvardeclaration? [c]
+  (if (re-find #"^(my|our) .+(=.*)?;" c)
+    true
+    false))
+
 (defn checksql? [token]
     (cond
       (re-find #"(?i)^select .* from .*( where .*)?( group by .*)?( having .*)?( order by .*)?" token) true
