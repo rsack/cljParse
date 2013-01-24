@@ -8,17 +8,17 @@
 ;; Notes:
 ;;		Careful of spaces in optional regex
 
-(defn checkbash? [c]
+(defn checkendswithsemicolon? [c]
   (if (re-find #"(?i)^.+;" c)
     true
     false))
 
-(defn chkIt? [c]
-  ( re-find #"(?i)(^select .* from .*( where .*)?( group by .*)?( having .*)?( order by .*)?)|(^delete from me)" c))
+(defn checksql? [c]
+  ( re-find #"(?i)(^select .* from .*( where .*)?( group by .*)?( having .*)?( order by .*)?)|(^delete from .*( where .*)?( limit .*)?)" c))
 
 (defn test-sql [token]
     (cond
-      (chkIt? token) true
+      (checksql? token) true
       :else false))
 
 (defn parse [f parsestr]
