@@ -7,19 +7,27 @@
 
 ;; Notes:
 ;;		Careful of spaces in optional regex
+;;    Maybe split the query types into parts of the cond: (re-find) true \n (re-find) true ...
 
 (defn checkendswithsemicolon? [c]
   (if (re-find #"(?i)^.+;" c)
     true
     false))
 
-(defn checksql? [c]
-  ( re-find #"(?i)(^select .* from .*( where .*)?( group by .*)?( having .*)?( order by .*)?)|(^delete from .*( where .*)?( limit .*)?)" c))
+;;(defn checksql? [c]
+;;  ( re-find #"(?i)(^select .* from .*( where .*)?( group by .*)?( having .*)?( order by .*)?)|(^delete from .*( where .*)?( limit .*)?)" c))
+;;
+;;(defn test-sql [token]
+;;    (cond
+;;      (checksql? token) true
+;;      :else false))
 
-(defn test-sql [token]
+
+(defn checksql? [token]
     (cond
-      (checksql? token) true
-      :else false))
+      (re-find #"(?i)^select .* from .*( where .*)?( group by .*)?( having .*)?( order by .*)?" token) true
+      (re-find #"(?i)^delete from .*( where .*)?( limit .*)?" token) true
+     :else false))
 
 (defn parse [f parsestr]
   (f parsestr))
