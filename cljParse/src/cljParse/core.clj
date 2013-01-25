@@ -22,6 +22,15 @@
     true
     false))
 
+;; Another way for the SQL:
+(def sqlpatterns [#"(?i)^select .* from .*( where .*)?( group by .*)?( having .*)?( order by .*)?"
+                  #"(?i)^delete from .*( where .*)?( limit .*)?"])
+
+(defn checksql2? [token]
+  (when (some #(re-find % token) sqlpatterns)
+    true)
+)
+
 (defn checksql? [token]
     (cond
       (re-find #"(?i)^select .* from .*( where .*)?( group by .*)?( having .*)?( order by .*)?" token) true
