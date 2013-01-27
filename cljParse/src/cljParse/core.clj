@@ -7,17 +7,20 @@
 ;; Notes:
 ;;		Careful of spaces in optional regex
 
-(defn checkendswithsemicolon? [c]
-  (if (re-find #"(?i)^.+;" c)
-    true
-    false))
+(defn test-for-re [ re-str str-str ] 
+  (if (re-find (re-pattern re-str) str-str)
+   true
+   false))
 
-(defn checkjavavardeclaration? [c]
+(defn end-semicolon? [c]
+  (test-for-re "(?i)^.+;" c))
+
+(defn java-var? [c]
   (if (re-find #"^(byte|short|int|long|float|double|boolean|String) .+(=.*)?;" c)
     true
     false))
 
-(defn checkperlvardeclaration? [c]
+(defn perl-var? [c]
   (if (re-find #"^(my|our) .+(=.*)?;" c)
     true
     false))
