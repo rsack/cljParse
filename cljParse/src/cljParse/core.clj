@@ -16,29 +16,18 @@
   (test-for-re "(?i)^.+;" c))
 
 (defn java-var? [c]
-  (if (re-find #"^(byte|short|int|long|float|double|boolean|String) .+(=.*)?;" c)
-    true
-    false))
+  (test-for-re "^(byte|short|int|long|float|double|boolean|String) .+(=.*)?;" c))
 
 (defn perl-var? [c]
-  (if (re-find #"^(my|our) .+(=.*)?;" c)
-    true
-    false))
+  (test-for-re "^(my|our) .+(=.*)?;" c))
 
 ;; Another way for the SQL:
 (def sqlpatterns [#"(?i)^select .* from .*( where .*)?( group by .*)?( having .*)?( order by .*)?"
                   #"(?i)^delete from .*( where .*)?( limit .*)?"])
 
-(defn checksql2? [token]
+(defn sql? [token]
   (when (some #(re-find % token) sqlpatterns)
-    true)
-)
-
-(defn checksql? [token]
-    (cond
-      (re-find #"(?i)^select .* from .*( where .*)?( group by .*)?( having .*)?( order by .*)?" token) true
-      (re-find #"(?i)^delete from .*( where .*)?( limit .*)?" token) true
-     :else false))
+    true))
 
 (defn parse [f parsestr]
   (f parsestr))
