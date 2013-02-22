@@ -21,6 +21,8 @@
 (defn perl-var? [c]
   (test-for-re "^(my|our) .+(=.*)?;" c))
 
+(defn valid-html? [c]
+  (test-for-re "(?i)^<html>.*<body>.*</body>.*</html>" c))
 ;; Another way for the SQL:
 (def sqlpatterns [#"(?i)^select .* from .*( where .*)?( group by .*)?( having .*)?( order by .*)?"
                   #"(?i)^delete from .*( where .*)?( limit .*)?"])
