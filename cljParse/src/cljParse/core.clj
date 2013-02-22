@@ -22,7 +22,7 @@
   (test-for-re "^(my|our) .+(=.*)?;" c))
 
 (defn valid-html? [c]
-  (test-for-re "(?is)^<html>.*<body>.*</body>.*</html>" c))
+  (test-for-re "(?is)^<html>(<head>.*(<title>.*</title>)?.*</head>)?.*<body>.*</body>.*</html>" c))
 
 ;; Another way for the SQL:
 (def sqlpatterns [#"(?i)^select .* from .*( where .*)?( group by .*)?( having .*)?( order by .*)?"
