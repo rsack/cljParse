@@ -19,7 +19,7 @@
 
 ; end-semicolon? - Tests for a line ending with a semicolon
 (defn end-semicolon? [c]
-  (test-for-re "(?i)^.+;" c))
+  (test-for-re "(?i)^.+;$" c))
 
 
 ; java-var? - Tests for a valid java variable decleration (including basic built-in types)
