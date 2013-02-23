@@ -34,7 +34,7 @@
 
 ; valid-html? - Tests for validity of a basic html structure 
 (defn valid-html? [c]
-  (test-for-re "(?is)^<html>(<head>.*(<title>.*</title>)?.*</head>)?.*<body>.*</body>.*</html>" c))
+  (test-for-re "(?is)^<html>(<head>.*(<title>.*</title>)?.*</head>)?<body>.*</body>.*</html>" c))
 
 
 ; sqlpatterns - Holds our supported SQL syntax reg-exs
