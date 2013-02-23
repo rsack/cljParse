@@ -9,7 +9,6 @@
 ;; Notes:
 ;;		Careful of spaces in optional regex
 
-
 ; test-for-re- Tests the 2nd arg for a match in the 1st arg (reg ex pattern)
 (defn test-for-re [ re-str str-str ] 
   (if (re-find (re-pattern re-str) str-str)
@@ -43,8 +42,9 @@
 
 
 ; sqlpatterns - Holds our supported SQL syntax reg-exs
-(def sqlpatterns [#"(?i)^select .* from .*( where .*)?( group by .*)?( having .*)?( order by .*)?"
-                  #"(?i)^delete from .*( where .*)?( limit .*)?"])
+(def sqlpatterns [#"(?is)^select .* from .*( where .*)?( group by .*)?( having .*)?( order by .*)?"
+                  #"(?is)^update .* set (.+=.+)+( where .*)?"
+                  #"(?is)^delete from .*( where .*)?( limit .*)?"])
 
 
 ; sql? - Tests a string for a match in one of the sqlpatterns
