@@ -44,6 +44,7 @@
 ; sqlpatterns - Holds our supported SQL syntax reg-exs
 (def sqlpatterns [#"(?is)^select .* from .*( where .*)?( group by .*)?( having .*)?( order by .*)?"
                   #"(?is)^update .* set (.+=.+)+( where .*)?"
+                  #"(?is)^insert into .* values \((.+)+\)"
                   #"(?is)^delete from .*( where .*)?( limit .*)?"])
 
 
