@@ -37,7 +37,7 @@
 
 ; check-php? - Tests for PHP validity (short tag/long tag open+close)
 (defn check-php? [c]
-  (test-for-re "<\\?(php)?\\s.*\\s\\?>" c))
+  (test-for-re "(?s)<\\?(php)?\\s.*\\s\\?>" c))
 
 
 ; sqlpatterns - Holds our supported SQL syntax reg-exs
