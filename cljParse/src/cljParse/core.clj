@@ -37,6 +37,11 @@
   (test-for-re "(?is)^<html>(<head>.*(<title>.*</title>)?.*</head>)?<body>.*</body>.*</html>" c))
 
 
+; check-php? - Tests for PHP validity (short tag/long tag open+close)
+(defn check-php? [c]
+  (test-for-re "<\\?(php)?\\s.*\\s\\?>" c))
+
+
 ; sqlpatterns - Holds our supported SQL syntax reg-exs
 (def sqlpatterns [#"(?i)^select .* from .*( where .*)?( group by .*)?( having .*)?( order by .*)?"
                   #"(?i)^delete from .*( where .*)?( limit .*)?"])
