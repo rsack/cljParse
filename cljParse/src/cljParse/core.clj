@@ -1,13 +1,12 @@
 (ns cljParse.core)
 
-;;;; Description: ADD!
+;;;; Description: 
+;;;;    cljParse is used for validating several predefined syntaxes in several languages.
+;;;;    If the validation is successful 'true' will be returned.
+;;;;    Usage is via the parse function, to be called with 2 arguments:
+;;;;      1. The relevant validation function.
+;;;;      2. The string to be tested.
 
-;; TODO:
-;;  CHECK:  Need to find a way to wrap the long reg-exs
-;;  DECIDE:	Check if "if re-find " or cond and true/false
-
-;; Notes:
-;;		Careful of spaces in optional regex
 
 ; test-for-re- Tests the 2nd arg for a match in the 1st arg (reg ex pattern)
 (defn test-for-re [ re-str str-str ] 
