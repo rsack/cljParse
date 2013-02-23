@@ -29,7 +29,7 @@
 
 ; perl-var? - Tests for a valid perl variable decleration (scope + line syntax)
 (defn perl-var? [c]
-  (test-for-re "^(my|our) .+(=.*)?;" c))
+  (test-for-re "^(my|our) (\\$|@|%).+(=.*)?;" c))
 
 
 ; valid-html? - Tests for validity of a basic html structure 
